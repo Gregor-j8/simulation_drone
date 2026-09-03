@@ -27,8 +27,10 @@ the M7 target board is emulated in Renode. No physical hardware is required.
 ## Start here
 
 - [`docs/plan.md`](docs/plan.md) — implementation plan and milestones (**in review**)
+- [`docs/build-plan.md`](docs/build-plan.md) — commit-by-commit roadmap (~127 commits)
 - [`docs/interfaces.md`](docs/interfaces.md) — sim ↔ FCS message schema
 - [`docs/requirements.md`](docs/requirements.md) — requirements + verification
+- [`docs/hardware.md`](docs/hardware.md) — Track H (schematic + ngspice + BOM)
 
 ## Build (once M0 lands)
 
