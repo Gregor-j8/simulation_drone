@@ -2,9 +2,9 @@
 name = "simulation-drone"
 version = "0.0.1"
 description = "SITL simulated multirotor: physics sim, sensor models, log analysis"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
-    "numpy>=1.26",
+    "numpy>=2.1",
 ]
 
 [project.optional-dependencies]
@@ -22,15 +22,18 @@ where = ["sim", "tools"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
 
+[tool.ruff.lint.isort]
+known-first-party = ["drone_sim", "logreplay"]
+
 [tool.mypy]
 strict = true
-python_version = "3.11"
-files = ["sim", "tools"]
+python_version = "3.12"
+files = ["sim/drone_sim", "tools/logreplay", "tools/check_traceability.py"]
 
 [tool.pytest.ini_options]
 testpaths = ["sim", "tools", "tests_py"]
