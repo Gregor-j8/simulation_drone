@@ -1,0 +1,20 @@
+# local scratch
+/Plan
+
+# c++ build
+/build/
+*.o
+*.a
+
+# python
+__pycache__/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.pyc
+.venv/
+
+# logs / artifacts
+*.blackbox
+/artifacts/

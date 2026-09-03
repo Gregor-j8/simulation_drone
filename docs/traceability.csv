@@ -1,0 +1,15 @@
+req_id,module,test_id,status
+SYS-001,fcs/scheduler,RtJitterTest.TickPeriodWithinBudget,planned
+SYS-002,fcs/fsm,FsmTest.NoValidImuEntersTermination,planned
+CTRL-001,fcs/control,PidTest.AttitudeStepResponse,planned
+CTRL-002,fcs/mixer,MixerTest.OutputsClampedToUnitRange,planned
+EST-001,fcs/estimator,EstimatorTest.AttitudeRmsUnderNoise,planned
+FSM-001,fcs/fsm,FsmTest.RejectArmWithoutGpsFix,planned
+FSM-002,fcs/fsm,integration/gps_loss_rtl.yaml,planned
+FSM-003,fcs/fsm,integration/battery_emergency.yaml,planned
+FSM-004,fcs/fsm,FsmTest.TransitionTableExhaustive,planned
+SNS-001,fcs/voter,VoterTest.ExcludesFaultyImuChannel,planned
+SNS-002,fcs/voter,VoterTest.GpsDisagreementRaisesFlag,planned
+LOG-001,fcs/logger,LoggerTest.EveryTickAppendsRecord,planned
+LOG-002,tools/logreplay,test_logreplay.py::test_decode_roundtrip,planned
+RT-001,fcs/scheduler,RtJitterTest.P99JitterUnderOneMs,planned

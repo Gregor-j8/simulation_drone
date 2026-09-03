@@ -1,0 +1,29 @@
+# Example integration scenario (schema draft — consumed from M4).
+# The harness starts the sim + fcs in lockstep, applies the fault schedule,
+# runs the mission, then evaluates every assertion.
+
+name: gps_loss_rtl
+description: >
+  Vehicle flies toward the first waypoint, loses GPS for longer than the
+  failsafe threshold, and must enter RTL within 2 s (FSM-002).
+
+initial_state:
+  position_ned_m: [0, 0, -0.1]
+  home_set: true
+
+environment:
+  wind_ned_ms: [3.0, 0.0, 0.0]
+
+mission:
+  - {cmd: takeoff, alt_m: 10}
+  - {cmd: goto, ned_m: [50, 0, -10]}
+  - {cmd: goto, ned_m: [50, 50, -10]}
+
+faults:
+  - {t_s: 8.0, target: gps, mode: dropout, duration_s: 20.0}
+
+assertions:
+  - {type: mode_entered, mode: RTL, before_s: 15.0}
+  - {type: mode_entered_within, mode: RTL, after_event: gps_loss_exceeds_5s, within_s: 2.0}
+  - {type: never_exceeds, signal: tilt_deg, limit: 35}
+  - {type: ends_near, ned_m: [0, 0, 0], tol_m: 3.0}
