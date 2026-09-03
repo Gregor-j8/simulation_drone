@@ -11,10 +11,14 @@ SensorFrame (sim → FCS)   msg_type=1
   uint64  sim_time_us
   uint32  seq
   Imu     imu[3]      // { float ax,ay,az (m/s^2); float gx,gy,gz (rad/s); uint8 healthy }
+                      //   already quantized + vibration-injected + bus-delayed by sim
   Gps     gps[2]      // { double lat,lon; float alt_m; float vn,ve,vd; uint8 fix; uint8 sats }
   float   baro_alt_m
   float   mag[3]
-  float   battery_v
+  float   battery_v   // pack terminal voltage under load (equivalent-circuit model)
+  float   battery_i   // pack current draw (A)
+  float   esc_rpm[4]  // ESC telemetry
+  float   esc_temp_c[4]
   float   rc[8]        // normalized channels, NaN if no link
 
 ActuatorFrame (FCS → sim)  msg_type=2
@@ -30,6 +34,8 @@ FcsStatus (FCS → sim, optional, for logging)  msg_type=3
   float   att_est[3]   // roll,pitch,yaw (rad)
   float   pos_est[3]   // NED (m)
   float   vel_est[3]   // NED (m/s)
+  float   soc_est      // battery state of charge [0,1] from the SoC EKF
+  float   endurance_s  // estimated flight time remaining
   uint16  active_reqs  // bitfield of failsafe conditions
 ```
 
