@@ -42,4 +42,5 @@ cmake -S . -B build -G Ninja && cmake --build build && ctest --test-dir build
 ```
 
 CI (GitHub Actions, Linux) is the source of truth. The order this is all built
-in is [`docs/build-plan.md`](docs/build-plan.md).
+in is tracked in local planning notes (`docs/build-plan.md`, not in version
+control).

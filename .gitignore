@@ -1,5 +1,7 @@
-# local scratch
+# local planning notes — kept out of the repo, live only on disk
 /Plan
+/docs/plan.md
+/docs/build-plan.md
 
 # c++ build
 /build/

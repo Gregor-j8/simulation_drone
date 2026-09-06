@@ -16,7 +16,7 @@ the M7 target board is emulated in Renode. No physical hardware is required.
 
 | Path | Contents |
 |------|----------|
-| `docs/` | Plan, requirements, interface schema, coding standard, traceability, hardware (Track H) |
+| `docs/` | Requirements, interface schema, coding standard, traceability, hardware (Track H) |
 | `fcs/` | Flight control system — C++20, deterministic 250 Hz loop (control, FSM, DSP, power) |
 | `sim/` | 6-DOF dynamics + propulsion electrics + battery + thermal + sensor models + fault injection — Python |
 | `hardware/` | Track H — KiCad schematic, ngspice netlists, BOM (design artifacts, nothing fabricated) |
@@ -26,11 +26,13 @@ the M7 target board is emulated in Renode. No physical hardware is required.
 
 ## Start here
 
-- [`docs/plan.md`](docs/plan.md) — implementation plan and milestones (**in review**)
-- [`docs/build-plan.md`](docs/build-plan.md) — commit-by-commit roadmap (~127 commits)
-- [`docs/interfaces.md`](docs/interfaces.md) — sim ↔ FCS message schema
 - [`docs/requirements.md`](docs/requirements.md) — requirements + verification
+- [`docs/interfaces.md`](docs/interfaces.md) — sim ↔ FCS message schema
+- [`docs/coding-standard.md`](docs/coding-standard.md) — C++/Python rules, dependency allowlist
 - [`docs/hardware.md`](docs/hardware.md) — Track H (schematic + ngspice + BOM)
+
+The implementation plan and commit-by-commit roadmap are kept as local working
+notes (`docs/plan.md`, `docs/build-plan.md`), outside version control.
 
 ## Build (once M0 lands)
 
